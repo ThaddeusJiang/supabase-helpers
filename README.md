@@ -8,6 +8,12 @@ bun install
 
 ## Usage
 
+### setup environment
+
+```bash
+cp .env.example .env
+```
+
 backup supabase storage to local directory
 
 ```bash
