@@ -1,0 +1,17 @@
+{
+  "name": "supabase-helpers",
+  "author": {
+    "name": "Thaddeus Jiang",
+    "email": "thaddeusjiang@gmail.com"
+  },
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.42.0"
+  }
+}
