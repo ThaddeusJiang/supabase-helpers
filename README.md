@@ -1,10 +1,16 @@
 # supabase-helpers
 
+DevOps Toolkit for [supabase](https://supabase.io/)
+
 To install dependencies:
 
 ```bash
 bun install
 ```
+
+## Features
+
+- backup supabase storage
 
 ## Usage
 
@@ -14,7 +20,7 @@ bun install
 cp .env.example .env
 ```
 
-backup supabase storage to local directory
+### backup supabase storage to local directory
 
 ```bash
 bun run backup_storage_buckets.ts

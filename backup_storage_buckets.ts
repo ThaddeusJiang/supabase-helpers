@@ -1,10 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-import { Buffer } from 'buffer'
+import { join, dirname } from 'node:path'
+import { existsSync, mkdirSync } from 'node:fs'
 
 import { decodeBase64 } from './base64'
 
@@ -54,13 +50,12 @@ async function download_file(bucket_id: string, file_path: string) {
 }
 
 async function write_file(bucket_id: string, file_path: string, data: Blob) {
-  // write a Blob to a file with Node.js
-  const file = path.join(__dirname, '.storage', bucket_id, file_path)
-  const dir = path.dirname(file)
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true })
+  const file = join(__dirname, '.storage', bucket_id, file_path)
+  const dir = dirname(file)
+  if (!existsSync(dir)) {
+    mkdirSync(dir, { recursive: true })
   }
-  fs.writeFileSync(file, Buffer.from(await data.arrayBuffer()))
+  await Bun.write(file, data)
 }
 
 async function main() {
